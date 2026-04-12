@@ -4,209 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Income System</title>
+
   <style>
-    :root {
-      --bg: #0b1220;
-      --panel: #111827;
-      --text: #ffffff;
-      --muted: #a4afc2;
-      --line: rgba(79, 140, 255, 0.28);
-      --grad: linear-gradient(90deg, #ff8a00, #4f8cff);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 86px;
+      background: #0b1220;
+      color: white;
+      text-align: center;
     }
 
     .container {
-      max-width: 920px;
+      max-width: 900px;
       margin: auto;
-      padding: 40px 20px 32px;
-      text-align: center;
-    }
-
-    .hero {
-      padding: 34px 10px 24px;
-    }
-
-    .hero h1 {
-      margin: 0 0 12px;
-      font-size: clamp(30px, 5vw, 44px);
-      line-height: 1.18;
-    }
-
-    .subheadline {
-      margin: 0 auto 22px;
-      max-width: 720px;
-      color: var(--muted);
-      font-size: clamp(16px, 2.4vw, 20px);
+      padding: 40px 20px;
     }
 
     .btn {
-      padding: 13px 24px;
+      padding: 14px 24px;
       border-radius: 10px;
       border: none;
-      cursor: pointer;
-      background: var(--grad);
+      background: linear-gradient(90deg, #ff8a00, #4f8cff);
       color: #fff;
       font-weight: bold;
-      font-size: 16px;
-      transition: transform 0.12s ease, opacity 0.2s ease;
+      cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn:disabled {
-      opacity: 0.75;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .hero-proof {
-      margin-top: 12px;
-      color: #b7c2d8;
-      font-size: 13px;
-    }
-
-    .trust-list {
-      margin: 16px auto 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      max-width: 700px;
-    }
-
-    .trust-item {
-      background: rgba(255, 255, 255, 0.06);
-      color: #d2dcf1;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-    }
-
-    .section {
-      margin-top: 48px;
-    }
-
-    .section h2 {
+    input {
+      padding: 12px;
+      width: 70%;
+      border-radius: 8px;
+      border: none;
       margin-bottom: 10px;
-      font-size: clamp(24px, 3.8vw, 33px);
-    }
-
-    .section p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .capture-box {
-      margin-top: 52px;
-      background: rgba(17, 24, 39, 0.92);
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.26);
-      border-radius: 14px;
-      padding: 30px 18px;
-    }
-
-    .capture-box h2 {
-      margin: 0 0 10px;
-      font-size: clamp(24px, 3.8vw, 32px);
-    }
-
-    .capture-box p {
-      margin: 0 0 20px;
-      color: var(--muted);
-    }
-
-    .helper {
-      margin-top: 11px;
-      font-size: 13px;
-      color: #b8c4dd;
-    }
-
-    .sticky-cta {
-      position: fixed;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-      width: min(94%, 520px);
-      text-align: center;
-    }
-
-    .sticky-cta .btn {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 10px 26px rgba(79, 140, 255, 0.28);
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        padding-top: 26px;
-      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header class="hero">
-      <h1>What if earning online didn&rsquo;t require tech skills, a big audience, or years of experience?</h1>
-      <p class="subheadline">
-        Most people try different methods but end up stuck &mdash; too many options, too much confusion, and no clear path.
-      </p>
-      <p class="subheadline" style="margin-top: 14px;">
-        There&rsquo;s now a simpler way using AI tools to do most of the work &mdash; you just follow a proven step-by-step process.
-      </p>
 
-      <h2 style="margin: 28px 0 14px; font-size: clamp(20px, 3vw, 26px); font-weight: 700;">Here&rsquo;s what makes it different</h2>
-      <div class="trust-list" aria-label="What makes this different">
-        <div class="trust-item">Works even if you&rsquo;ve never made money online</div>
-        <div class="trust-item">No coding, no content creation, no ads</div>
-        <div class="trust-item">Uses free AI tools you can start today</div>
-        <div class="trust-item">Simple system you can follow step-by-step</div>
-        <div class="trust-item">Designed for beginners starting from zero</div>
-      </div>
+<div class="container">
 
-      <p style="margin: 24px 0 8px;">
-        <a class="btn" href="https://heikoboos.com/the-email-marketing-fundamentals/" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;">See how it works &rarr;</a>
-      </p>
-      <div class="hero-proof">No sign-up needed &mdash; takes less than 2 minutes</div>
-    </header>
+  <h1>What if earning online didn’t require tech skills?</h1>
 
-    <section class="section">
-      <h2>Why this beats guessing</h2>
-      <p>
-        Instead of jumping between tactics, you get one clear path: AI handles the heavy lifting, and you follow the steps.
-        That&rsquo;s how you move from &ldquo;where do I start?&rdquo; to actually doing the next right thing.
-      </p>
-    </section>
+  <p>
+    There’s now a simple AI system that helps beginners start earning step-by-step.
+  </p>
 
-    <section id="capture" class="capture-box">
-      <h2>See the full breakdown on the next page</h2>
-      <p>
-        Open the walkthrough to see how the process works and what you get &mdash; no email required on this step.
-      </p>
-      <p style="margin: 0;">
-        <a class="btn" href="https://heikoboos.com/the-email-marketing-fundamentals/" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;">See how it works &rarr;</a>
-      </p>
-      <div class="helper">Instant access to details on the vendor page.</div>
-    </section>
-  </div>
+  <!-- ✅ EMAIL CAPTURE FORM -->
+  <h2>Get Free Access Now</h2>
 
-  <div class="sticky-cta">
-    <a class="btn" href="https://heikoboos.com/the-email-marketing-fundamentals/" rel="noopener noreferrer" style="display: block; text-decoration: none; text-align: center;">See how it works &rarr;</a>
-  </div>
+  <form id="leadForm">
+    <input type="email" id="email" placeholder="Enter your email" required><br>
+    <button type="submit" class="btn">Get Free System</button>
+  </form>
+
+</div>
+
+<!-- ✅ SCRIPT -->
+<script>
+document.getElementById("leadForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+
+  fetch("https://api.getresponse.com/v3/contacts", {
+    method: "POST",
+    headers: {
+      "X-Auth-Token": "api-key bilos4szdq4ijzkzs758ty2cyjhlmncg",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      email: email,
+      campaign: {
+        campaignId: "YOUR_LIST_ID"
+      }
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("✅ Access unlocked!");
+
+    window.location.href = https://jvz5.com/c/3335907/436155;
+  })
+  .catch(err => {
+    alert("❌ Error!");
+    console.error(err);
+  });
+});
+</script>
+
 </body>
 </html>
