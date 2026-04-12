@@ -1,97 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Income System</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Earn Online Using AI – Free Access</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1220;
-      color: white;
-      text-align: center;
-    }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0d0f14;
+    color: #e8eaf0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+  /* ── TOP BAR ── */
+  .topbar {
+    width: 100%;
+    background: #111318;
+    border-bottom: 1px solid #1e2130;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #7dd3a8;
+    letter-spacing: 0.03em;
+  }
 
-    .btn {
-      padding: 14px 24px;
-      border-radius: 10px;
-      border: none;
-      background: linear-gradient(90deg, #ff8a00, #4f8cff);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
+  /* ── HERO ── */
+  .hero {
+    width: 100%;
+    max-width: 720px;
+    padding: 60px 24px 40px;
+    text-align: center;
+  }
 
-    input {
-      padding: 12px;
-      width: 70%;
-      border-radius: 8px;
-      border: none;
-      margin-bottom: 10px;
-    }
-  </style>
+  .badge {
+    display: inline-block;
+    background: #1a2a1e;
+    color: #5ecc8b;
+    border: 1px solid #2a4a34;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 18px;
+  }
+
+  h1 span {
+    background: linear-gradient(90deg, #4ade80, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subheadline {
+    font-size: clamp(15px, 2.5vw, 18px);
+    color: #9da3b8;
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* ── BENEFITS ── */
+  .benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+    text-align: left;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #c8cce0;
+    background: #13161f;
+    border: 1px solid #1e2235;
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+
+  .check {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: #1a3028;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .check svg { width: 11px; height: 11px; }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: #13161f;
+    border: 1px solid #1e2235;
+    border-radius: 16px;
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 20px;
+  }
+
+  .form-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .form-card p {
+    font-size: 13px;
+    color: #6b7494;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    padding: 13px 16px;
+    background: #0d0f14;
+    border: 1px solid #2a2e42;
+    border-radius: 9px;
+    color: #e8eaf0;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input[type="email"]::placeholder { color: #4a506a; }
+  input[type="email"]:focus { border-color: #4ade80; }
+
+  .cta-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+
+  .cta-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+  .cta-btn:active { transform: scale(0.98); }
+
+  .privacy {
+    font-size: 11.5px;
+    color: #4a506a;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* ── SOCIAL PROOF ── */
+  .proof {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 0 24px 24px;
+    max-width: 720px;
+  }
+
+  .proof-item {
+    text-align: center;
+  }
+
+  .proof-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4ade80;
+  }
+
+  .proof-label {
+    font-size: 12px;
+    color: #6b7494;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    max-width: 480px;
+    height: 1px;
+    background: #1e2235;
+    margin: 10px auto 24px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #3a3f55;
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .success-msg h3 {
+    font-size: 20px;
+    color: #4ade80;
+    margin-bottom: 8px;
+  }
+
+  .success-msg p {
+    font-size: 14px;
+    color: #9da3b8;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 40px 16px 28px; }
+    .form-card { padding: 24px 16px; border-radius: 12px; }
+  }
+</style>
 </head>
-
 <body>
 
-<div class="container">
-
-  <h1>What if earning online didn’t require tech skills?</h1>
-
-  <p>
-    There’s now a simple AI system that helps beginners start earning step-by-step.
-  </p>
-
-  <!-- ✅ EMAIL CAPTURE FORM -->
-  <h2>Get Free Access Now</h2>
-
-  <form id="leadForm">
-    <input type="email" id="email" placeholder="Enter your email" required><br>
-    <button type="submit" class="btn">Get Free System</button>
-  </form>
-
+<div class="topbar">
+  &#9733; Limited Free Access — 100% Beginner Friendly &#9733;
 </div>
 
-<!-- ✅ SCRIPT -->
+<section class="hero">
+  <div class="badge">&#128640; New AI Income System</div>
+
+  <h1>Earn Online Using AI<br /><span>Even If You're a Complete Beginner</span></h1>
+
+  <p class="subheadline">
+    A simple, step-by-step system that shows you exactly how to make money online using free AI tools — no experience, no coding, no complicated setup required.
+  </p>
+
+  <ul class="benefits">
+    <li>
+      <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong style="color:#e8eaf0;">Zero experience needed</strong> — start from scratch and still get results</span>
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong style="color:#e8eaf0;">No coding or tech skills</strong> — everything is point-and-click simple</span>
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong style="color:#e8eaf0;">Uses 100% free AI tools</strong> — no paid software or monthly subscriptions</span>
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong style="color:#e8eaf0;">Step-by-step guidance</strong> — follow along at your own pace, anytime</span>
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong style="color:#e8eaf0;">Real income potential</strong> — beginners are already seeing their first results</span>
+    </li>
+  </ul>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <h2>&#128274; Get Your Free Access Now</h2>
+    <p>Enter your email to instantly unlock the system</p>
+
+    <form id="lead-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <input type="email" id="email-input" placeholder="Enter your best email address" required />
+        <button type="submit" class="cta-btn">&#9889; Get Free Access — Start Today</button>
+      </div>
+    </form>
+
+    <div class="success-msg" id="success-msg">
+      <h3>&#10003; You're in! Redirecting you now…</h3>
+      <p>Taking you to your free access page…</p>
+    </div>
+
+    <p class="privacy">&#128274; Your email is safe. We never spam or share your info.</p>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- SOCIAL PROOF -->
+<div class="proof">
+  <div class="proof-item">
+    <div class="proof-num">12,400+</div>
+    <div class="proof-label">Beginners Enrolled</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">4.9 &#9733;</div>
+    <div class="proof-label">Average Rating</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">100%</div>
+    <div class="proof-label">Free to Start</div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 AI Income System &nbsp;|&nbsp; Results may vary. This is not a get-rich-quick scheme.
+</footer>
+
 <script>
-document.getElementById("leadForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    console.log('Lead captured:', email);
 
-  const email = document.getElementById("email").value;
+    document.getElementById('lead-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
 
-  fetch("https://api.getresponse.com/v3/contacts", {
-    method: "POST",
-    headers: {
-      "X-Auth-Token": "api-key bilos4szdq4ijzkzs758ty2cyjhlmncg",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      email: email,
-      campaign: {
-        campaignId: "YOUR_LIST_ID"
-      }
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("✅ Access unlocked!");
-
-    window.location.href = https://jvz5.com/c/3335907/436155;
-  })
-  .catch(err => {
-    alert("❌ Error!");
-    console.error(err);
-  });
-});
+    setTimeout(function() {
+      window.location.href = 'https://jvz9.com/c/3335907/436155';
+    }, 1200);
+  }
 </script>
-
 </body>
 </html>
