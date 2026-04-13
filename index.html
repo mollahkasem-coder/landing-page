@@ -4,52 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Money System</title>
-
-<style>
-body {
-  background:#080b10;
-  color:#fff;
-  font-family: Arial;
-  text-align:center;
-  padding:40px 20px;
-}
-
-.box {
-  max-width:500px;
-  margin:auto;
-  background:#111827;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 0 30px rgba(0,0,0,0.5);
-}
-
-h1 {
-  font-size:28px;
-  margin-bottom:10px;
-}
-
-p {
-  color:#aaa;
-  margin-bottom:20px;
-}
-
-</style>
 </head>
 
-<body>
-
-<div class="box">
+<body style="background:#080b10; color:#fff; font-family:sans-serif; text-align:center; padding:40px;">
 
 <h1>🔥 AI Money System</h1>
 <p>Enter your email to unlock access</p>
 
-<!-- ✅ GETRESPONSE FORM -->
-<getresponse-form form-id="55bf140e-ba9b-42bd-aa35-712cde1d3274" e="1"></getresponse-form>
+<!-- ✅ FORM CONTAINER -->
+<div id="gr-form"></div>
 
-</div>
-
-<!-- ✅ REQUIRED SCRIPT -->
+<!-- ✅ SCRIPT -->
 <script src="https://app.getresponse.com/forms.js"></script>
+
+<script>
+window.addEventListener("load", function() {
+  if (window.gr8) {
+    window.gr8.forms.create({
+      formId: "55bf140e-ba9b-42bd-aa35-712cde1d3274",
+      container: "#gr-form"
+    });
+  }
+});
+</script>
 
 </body>
 </html>
