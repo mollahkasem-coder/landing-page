@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Paid for Your Opinion — Take a Survey Now</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0F1E;
+    --card: #111827;
+    --border: rgba(255,255,255,0.08);
+    --accent: #00E5A0;
+    --accent2: #FFD700;
+    --text: #F0F4FF;
+    --muted: #8B9BB4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* glow blob */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(0,229,160,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-btn {
+    background: var(--accent);
+    color: #0A0F1E;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 20px rgba(0,229,160,0.3);
+  }
+
+  .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,229,160,0.5); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .flag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .flag-badge span { font-size: 1rem; }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  h1 .green { color: var(--accent); }
+  h1 .gold { color: var(--accent2); }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .cta-wrap {
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .cta-main {
+    display: inline-block;
+    background: var(--accent);
+    color: #0A0F1E;
+    text-decoration: none;
+    padding: 1.1rem 2.8rem;
+    border-radius: 100px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    box-shadow: 0 0 40px rgba(0,229,160,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-main:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(0,229,160,0.6); }
+
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* HOW IT WORKS */
+  .steps {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-tag {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .step-card:hover {
+    border-color: rgba(0,229,160,0.3);
+    transform: translateY(-4px);
+  }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(0,229,160,0.15);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .step-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+  .step-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  /* PAYOUT HIGHLIGHT */
+  .payout-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .payout-card {
+    background: linear-gradient(135deg, rgba(0,229,160,0.1) 0%, rgba(0,229,160,0.03) 100%);
+    border: 1px solid rgba(0,229,160,0.25);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .payout-label { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+  .payout-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent2);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .payout-sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+
+  .payout-cta {
+    display: inline-block;
+    background: var(--accent2);
+    color: #0A0F1E;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(255,215,0,0.3);
+  }
+
+  .payout-cta:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(255,215,0,0.5); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 700px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .stats-row { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Survey<span>Cash</span></div>
+  <a href="https://singingfiles.com/show.php?l=0&u=2356849&id=73209" target="_blank" class="nav-btn">Start Earning →</a>
+</nav>
+
+<section class="hero">
+  <div class="flag-badge"><span>🇺🇸</span> Available for US residents only</div>
+  <h1>Share Your Opinion.<br>Get <span class="green">Paid</span> <span class="gold">$$$</span></h1>
+  <p class="hero-sub">
+    Companies need your feedback. Take a quick survey and earn real cash — 
+    no experience needed, no credit card, completely free to join.
+  </p>
+  <div class="cta-wrap">
+    <a href="https://singingfiles.com/show.php?l=0&u=2356849&id=73209" target="_blank" class="cta-main">Take a Survey Now ✦</a>
+    <p class="cta-note">Free to join · Takes 2–5 minutes · Instant rewards</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-num">$2.73</div>
+      <div class="stat-label">Per survey</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2 min</div>
+      <div class="stat-label">Average time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Free to join</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Fast</div>
+      <div class="stat-label">Payout</div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="section-tag">How it works</div>
+  <h2 class="section-title">3 Simple Steps to Get Paid</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">📝</div>
+      <h3>Sign Up Free</h3>
+      <p>Create your free account in seconds. No credit card or payment info needed.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">💬</div>
+      <h3>Take a Survey</h3>
+      <p>Answer a few simple questions about products and services. Takes just 2–5 minutes.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">💸</div>
+      <h3>Get Rewarded</h3>
+      <p>Earn real cash rewards for every survey you complete. Withdraw anytime.</p>
+    </div>
+  </div>
+</section>
+
+<section class="payout-section">
+  <div class="payout-card">
+    <div class="payout-label">Earn per survey</div>
+    <div class="payout-amount">$2.73</div>
+    <div class="payout-sub">Just enter your email to get started</div>
+    <a href="https://singingfiles.com/show.php?l=0&u=2356849&id=73209" target="_blank" class="payout-cta">Claim Your Reward ✦</a>
+  </div>
+</section>
+
+<footer>
+  <p>This page contains affiliate links. We may earn a commission if you sign up through our link, at no extra cost to you.<br>
+  <a href="#">Privacy Policy</a> · <a href="#">Disclaimer</a> · 🇺🇸 US residents only</p>
+</footer>
+
+</body>
+</html>
